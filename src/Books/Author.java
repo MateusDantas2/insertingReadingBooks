@@ -3,6 +3,7 @@ package Books;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.util.Date;
 
 public class Author implements Recordable {
@@ -24,6 +25,11 @@ public class Author implements Recordable {
 
 	public Date getDataNascimento() {
 		return dataNascimento;
+	}
+	
+	public String getDataNascimentoStr() {
+		DateFormat df1 = DateFormat.getDateInstance(DateFormat.SHORT);
+		return df1.format(this.dataNascimento);
 	}
 
 	@Override
@@ -67,6 +73,6 @@ public class Author implements Recordable {
 	
 	@Override
 	public String toString() {
-		return "Autor -> nome = " + nome + " -> dataNascimento = " + dataNascimento;
+		return "Autor -> nome = " + nome + " -> dataNascimento = " + getDataNascimentoStr();
 	}
 }
